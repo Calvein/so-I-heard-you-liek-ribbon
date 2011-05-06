@@ -1,0 +1,203 @@
+<!doctype html>
+<!--[if IE 7 ]>		<html class="ie7 no-js"> <![endif]-->
+<!--[if IE 8 ]>		<html class="ie8 no-js"> <![endif]-->
+<!--[if IE 9 ]>		<html class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->  <html class="no-js">     <!--<![endif]-->
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="description" content="So I heard you liek ribbon, you might liek this ribbon generator so !">
+	<meta name="author" content="François Robichet">
+	<!-- TITLE -->
+	<title>So I heard you liek ribbon</title>
+	<!-- CSS -->
+	<link rel="stylesheet"  href="//fonts.googleapis.com/css?family=Josefin+Slab:bold|Droid+Sans">
+	<link rel="stylesheet" href="style.css?v=1">
+	<!-- DIVERS -->
+	<!--[if IE]><![endif]-->
+	<script src="modernizr-1.7.min.js"></script>
+	<script>
+		// Ajout de range et color
+		h = document.getElementsByTagName('html')[0];
+		h.className += Modernizr.inputtypes['range'] ? ' input[range]' : ' no-input[range]';
+		h.className += Modernizr.inputtypes['color'] ? ' input[color]' : ' no-input[color]';
+	</script>
+</head>
+<body lang="en">
+	<h1>so I heard you liek ribbon</h1>
+	<div id="✿">
+		<div id="d">
+			<div id="before"></div>
+			<div id="after"></div>
+		</div>
+	</div>
+	<ul id="parameters">
+		<li>
+			<label for="height-range">Height: <span class="value"></span></label>
+			<input id="height-range" type="range" min="0" max="200" value="48" />
+		</li>
+		<li>
+			<label for="width-range">Width: <span class="value"></span></label>
+			<input id="width-range" type="range" min="0" max="1500" value="960" />
+		</li>
+		<li>
+			<label for="perspective-range">Perspective: <span class="value"></span></label>
+			<input id="perspective-range" type="range" min="0" max="50" value="16" step="2" />
+		</li>
+		<li class="checkbox">
+			<label for="perspective-down">Perspective down:</label>
+			<input id="perspective-down" type="checkbox" />
+		</li>
+		<li class="checkbox">
+			<label for="perspective-left">Left: </label><input id="perspective-left" type="checkbox" />
+			<label for="perspective-right">Right: </label><input id="perspective-right" type="checkbox" />
+		</li>
+		<li>
+			<!--<label for="gradient">Gradient ?</label>
+			<input id="gradient" type="checkbox" />
+			<ul class="hidden">
+				<li>-->
+					<label for="color">Color: </label>
+					<input id="color" type="color" value="#96BEDC" />
+				<!--</li>
+			</ul>
+			<ul>
+				<li>
+					<label for="first-color">First color: </label>
+					<input id="first-color" type="color" value="#5a2" />
+				</li>
+				<li>
+					<label for="lastfirst-color">Last color: </label>
+					<input id="last-color" type="color" value="#5a2" />
+				</li>
+			</ul>-->
+		</li>
+		<li>
+			<label for="color">Perspective color: </label>
+			<input id="perspective-color" type="color" value="#6e8c96" />
+		</li>
+	</ul>
+	<div id="copy">Copy the code to clipboard</div>	
+	
+	<pre id="code">
+	el {<span id="css-d">
+		display: block;
+		position: relative;
+		top: 40px;
+		height: <span class="height"></span>px;
+		left: <span class="left"></span>px;
+		width: <span class="width"></span>px;
+		background: <span class="background"></span>;
+	</span>}
+	
+	el:before, el:after {
+		content: '';
+		display: block;
+		position: absolute;
+		border-style: solid;
+	}
+	
+	el:before {<span id="css-before">
+		display: <span class="display"></span>;
+		left: 0;
+		top: <span class="top"></span>px;
+		border-width: <span class="borderWidth"></span>px;
+		border-color: <span class="borderColor"></span>;
+	</span>}
+	
+	el:after {<span id="css-after">
+		display: <span class="display"></span>;
+		right: 0;
+		top: <span class="top"></span>px;
+		border-width: <span class="borderWidth"></span>px;
+		border-color: <span class="borderColor"></span>;
+	</span>}
+	</pre>
+
+	<div id="examples">
+		<h2>Some examples you may liek</h2>
+		<h3>Only left:</h3>
+		<div class="example">
+			<div class="ribbon left"></div>
+		</div>
+
+		<a href="#" class="toggle-code">Toggle code</a>
+		<div class="code">
+			
+			<h4>Html:</h4>
+<pre>&lt;div class="example"&gt;
+	&lt;div class="ribbon left"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+	
+			<h4>CSS:</h4>
+<pre>.ribbon.left {
+	width: 66%;
+}
+	
+.ribbon.left:after {
+	display: none;
+}</pre>
+		</div>
+
+		<h3>With shadows:</h3>
+		<div class="example">
+			<div class="ribbon shadow"><div class="ribbon-shadow"></div></div>
+		</div>
+
+		<a href="#" class="toggle-code">Toggle code</a>
+		<div class="code">
+			
+			<h4>Html:</h4>
+<pre>&lt;div class="example"&gt;
+	&lt;div class="ribbon shadow"&gt;&lt;div class="ribbon-shadow"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+			<h4>CSS:</h4>
+<pre>.example {
+	position: relative;
+	z-index: 1;
+}
+
+.ribbon.shadow {
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .4), 0 0 20px rgba(0, 0, 0, .15) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .4), 0 0 20px rgba(0, 0, 0, .15) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .4), 0 0 20px rgba(0, 0, 0, .15) inset;
+}
+
+.ribbon.shadow .ribbon-shadow {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	bottom: 0;
+	left: 15px;
+	-moz-border-radius: 666px / 20px;
+	border-radius: 666px / 20px;
+	-webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 1px 15px rgba(0, 0, 0, 0.6);
+	z-index: -1;
+}</pre>
+		</div>
+	
+	<em>More example? Send them to <a href="http://twitter.com/calvein" target="_blank">me</a> :)</em>		
+	</div>
+	<footer>
+		<p>
+			Made with ♡ by <a href="http://francois.robichet.com" target="_blank">François Robichet</a> aka <a href="http://twitter.com/calvein" target="_blank">@calvein</a>.<br />
+			Thanks to <a href="http://twitter.com/LeaVerou">Lea Verou</a> for the background pattern, <a href="http://twitter.com/mdo">Mark Otto</a> for the 3D text and <a href="http://twitter.com/paul_irish">Paul Irish</a> for all his <del>useless</del> greats generators ☺.
+		</p> 
+	</footer>
+	<!-- Google Analytics-->
+	<script>
+		var _gaq=[['_setAccount','UA-21572045-1'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+	<!-- JS -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+	<script src="ZeroClipboard.js"></script>
+	<script src="script.js?v=1"></script>
+</body>
+</html>
