@@ -50,8 +50,8 @@ $('input[type=color]')
     $uBefore.css('background', moins20)
 
 
-    styleSheet.insertRule('.ribbon u::selection { background-color: ' + moins20 + ' }');
-    styleSheet.insertRule('.ribbon u::-moz-selection { background-color: ' + moins20 + ' }');
+    styleSheet.insertRule('.ribbon u::selection { background-color: ' + moins20 + ' }', 0);
+    styleSheet.insertRule('.ribbon u::-moz-selection { background-color: ' + moins20 + ' }', 0);
 
     location.hash = color.toCSS().substr(1)
 })
