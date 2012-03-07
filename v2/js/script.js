@@ -21,15 +21,11 @@ var Color = net.brehaut.Color
   , styleSheet = document.styleSheets[1];
 
 
-/*
 location.hash && !function() {
-    var data = location.hash.split(',')
-    if (Color.isValid(data[0])) {
-        color = data[0]
-        $u.text(data[1])
+    if (Color.isValid(location.hash)) {
+        color = location.hash
     }
 }()
-*/
 
 $('input[type=color]')
 .on('change', function(e) {
@@ -37,7 +33,7 @@ $('input[type=color]')
 
     $u.css('background', '-webkit-linear-gradient(' + color.toCSS() + ', ' + color.darkenByAmount(.12).toCSS() + ')')
 
-    // To HSLA à faire
+    // @TODO toHSLA
     var moins10 = color.darkenByAmount(.3)
       , hsla = 'hsla(' + moins10.hue + ', ' + moins10.saturation * 100 + '%, ' + moins10.value * 100 + '%, '
 
@@ -56,17 +52,15 @@ $('input[type=color]')
 
     styleSheet.insertRule('.ribbon u::selection { background-color: ' + moins20 + ' }');
     styleSheet.insertRule('.ribbon u::-moz-selection { background-color: ' + moins20 + ' }');
+
+    location.hash = color.toCSS().substr(1)
 })
 .val(
     (function() {
         return color = color || startColors[~~(Math.random() * startColors.length)]
-    })()
+    }())
 )
 .change()
-
-$u.on('blur', function(e) {
-    location.hash = [color.toCSS().substr(1), this.innerText].join(',')
-})
 
 
 
