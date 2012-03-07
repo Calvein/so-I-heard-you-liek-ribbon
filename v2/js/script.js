@@ -71,8 +71,8 @@ $u.on('blur', function(e) {
 
 
 $('input[type=range]').on('change', function(e) {
-    $('div').css('max-width', this.value)
-})
+    $('div').css('max-width', this.value + 'px')
+}).change()
 
 $('input[type=button]').on('click', function(e) {
   $ribbon.toggleClass('up down');
