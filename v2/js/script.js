@@ -1,3 +1,5 @@
+// All the code is nasty, don't use it, please
+
 'use strict'
 
 var $ribbon = $('.ribbon')
@@ -16,6 +18,7 @@ var Color = net.brehaut.Color
     // By default, take a color from this theme http://kuler.adobe.com/#themeID/2221 (Kuler API sucks)
   , startColors = ['#FFF8E3', '#CCCC9F', '#33332D', '#9FB4CC', '#DB4105']
   , color = null
+  , styleSheet = document.styleSheets[1];
 
 
 /*
@@ -51,10 +54,8 @@ $('input[type=color]')
     $uBefore.css('background', moins20)
 
 
-    var s = document.styleSheets[1];
-
-    s.insertRule('.ribbon u::selection { background-color: ' + moins20 + ' }');
-    s.insertRule('.ribbon u::-moz-selection { background-color: ' + moins20 + ' }');
+    styleSheet.insertRule('.ribbon u::selection { background-color: ' + moins20 + ' }');
+    styleSheet.insertRule('.ribbon u::-moz-selection { background-color: ' + moins20 + ' }');
 })
 .val(
     (function() {
@@ -70,12 +71,7 @@ $u.on('blur', function(e) {
 
 
 $('input[type=range]').on('change', function(e) {
-    $('div').width(this.value)
-})
-
-$('input[type=number]').on('change', function(e) {
-    $ribbonBefore.css('-webkit-transform', 'rotate(-' + this.value + 'deg)')
-    $iBefore.css('-webkit-transform', 'rotate(' + this.value + 'deg)')
+    $('div').css('max-width', this.value)
 })
 
 $('input[type=button]').on('click', function(e) {

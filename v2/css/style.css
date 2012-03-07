@@ -1,7 +1,7 @@
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 div {
-    width: 800px;
+    max-width: 800px;
     height: 200px;
     background-color: #ded8c5;
     margin: 0 auto;
